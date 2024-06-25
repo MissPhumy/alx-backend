@@ -17,42 +17,6 @@ By the end of this project, you should be able to explain the following concepts
 - Different types of cache replacement policies: FIFO, LIFO, LRU, MRU, LFU
 - How to implement caching algorithms in Python
 
-## BaseCaching
-All your classes must inherit from the BaseCaching class, which is defined as follows:
-
-
-#!/usr/bin/python3
-""" BaseCaching module
-"""
-
-class BaseCaching():
-    """ BaseCaching defines:
-      - constants of your caching system
-      - where your data are stored (in a dictionary)
-    """
-    MAX_ITEMS = 4
-
-    def __init__(self):
-        """ Initialize
-        """
-        self.cache_data = {}
-
-    def print_cache(self):
-        """ Print the cache
-        """
-        print("Current cache:")
-        for key in sorted(self.cache_data.keys()):
-            print("{}: {}".format(key, self.cache_data.get(key)))
-
-    def put(self, key, item):
-        """ Add an item in the cache
-        """
-        raise NotImplementedError("put must be implemented in your cache class")
-
-    def get(self, key):
-        """ Get an item by key
-        """
-        raise NotImplementedError("get must be implemented in your cache class")
 # Tasks
 
 ## 0. Basic Dictionary
@@ -155,3 +119,40 @@ Create a class `LFUCache` that inherits from `BaseCaching` and implements a cach
   - Return the value in `self.cache_data` linked to key.
   - If key is None or if the key doesn't exist in `self.cache_data`, return None.
 
+## BaseCaching
+All your classes must inherit from the BaseCaching class, which is defined as follows:
+
+```python
+$ cat base_caching.py
+#!/usr/bin/python3
+""" BaseCaching module
+"""
+
+class BaseCaching():
+    """ BaseCaching defines:
+      - constants of your caching system
+      - where your data are stored (in a dictionary)
+    """
+    MAX_ITEMS = 4
+
+    def __init__(self):
+        """ Initialize
+        """
+        self.cache_data = {}
+
+    def print_cache(self):
+        """ Print the cache
+        """
+        print("Current cache:")
+        for key in sorted(self.cache_data.keys()):
+            print("{}: {}".format(key, self.cache_data.get(key)))
+
+    def put(self, key, item):
+        """ Add an item in the cache
+        """
+        raise NotImplementedError("put must be implemented in your cache class")
+
+    def get(self, key):
+        """ Get an item by key
+        """
+        raise NotImplementedError("get must be implemented in your cache class")
