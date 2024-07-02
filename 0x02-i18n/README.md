@@ -1,4 +1,5 @@
-# Flask i18n Project
+# 0x02. i18n
+## Flask i18n Project
 
 This project demonstrates the implementation of internationalization (i18n) in a Flask application. The main objective is to localize the app by displaying different languages and timezones based on user settings, URL parameters, and request headers.
 
